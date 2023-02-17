@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/*--------------------
+* Preloder *
+----------------------*/
+
+.loader{
+	width: 100%;
+	height: 100%;
+	background-color: #955DF0;
+	z-index: 999999;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.loader .circle{
+
+	width: 3.125rem;
+	height: 3.125rem;
+	background: #fff;
+	border-radius: 50%;
+	border: 0.188rem  solid #fff;
+	margin: 0 0.20rem;
+	animation: loader 1.2s infinite;
+}
+
+@keyframes loader{
+
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	    }
+
+	    100% {
+		-webkit-transform: translateX(3.75rem);
+		transform: translateX(3.75rem);
+	    }
+}
+
+
+.circle-one,.cirlce-two,.cirlce-two{
+	-webkit-animation: move 1s ease-in-out infinite;
+	animation: move 1s ease-in-out infinite;
+}
+
+.loader div:nth-child(1){
+	background: transparent;
+	animation-delay: -0.40s;
+}
+
+
+.loader div:nth-child(2){
+	background: transparent;
+	animation-delay: -0.20s;
+}
+
+.loader div:nth-child(3){
+	background: transparent;
+	animation-delay: 0s;
+}
+
+
+@-webkit-keyframes move {
+	0% {
+	    -webkit-transform: translateX(0);
+	    transform: translateX(0);
+	}
+
+	100% {
+	    -webkit-transform: translateX(60px);
+	    transform: translateX(60px);
+	}
+    }
+
+

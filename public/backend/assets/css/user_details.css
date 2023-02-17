@@ -1,0 +1,76 @@
+/*
+ -------------------------
+        *  Overwrite Main Container *
+--------------------------
+*/
+.main-container{
+        padding-left: 303.2px !important;
+}
+
+
+@media only screen and (max-width:1280px) {
+        .main-container{
+                padding-left: 0 !important;
+        }
+}
+
+
+/*
+ -------------------------
+        * All Users *
+--------------------------
+*/
+
+
+input[type=text]:focus,input[type=email]:focus,
+input[type=password]:focus,input[type=number]:focus,
+input[type=date]:focus,
+input[type=checkbox]:focus,
+.form-select:focus,.form-control.product-content:focus{
+        box-shadow: none;
+        outline: none;
+}
+
+.is-active {
+        float: right;
+}
+
+.requires {
+        color: #ffa500;
+}
+
+.form-control, .form-select{
+        width: 200px !important;
+        height: 40px;
+}
+
+.form-control.product-content{
+        width:350px !important;
+}
+
+textarea{
+        width: 300px;
+        height: 100px;
+        border-radius: 5px;
+}
+
+textarea:focus{
+        border-color: #1500ffde !important;
+}
+
+.btn-group .btn {
+        flex: 0;
+}
+
+.btn-group:hover .btn{
+        background:transparent;
+        border: 1px solid #091ce661;
+        color: #000000;
+}
+
+.rular{
+        color:rgb(225, 28, 225);
+}
+
+
+

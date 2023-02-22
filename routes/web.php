@@ -14,6 +14,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -35,3 +37,21 @@ Route::group(['middleware' => ['auth']], function() {
  Route::controller(AdminController::class)->group(function(){
     Route::get('admin/login','destroy')->name('admin.logout');
  });
+
+
+ /**--------------------------
+ *  Object Storage Routes *
+ --------------------*/
+ Route::post('upload',function(){
+    request()->file('file')->store(
+        'khun-tun',
+        'do'
+    );
+    return back();
+ })->name('upload');
+
+
+Route::get('/upload', function () {
+    return view('admin.upload.form_upload');
+});
+

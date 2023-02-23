@@ -1,5 +1,8 @@
 
-
+@php
+        $id = Auth::user()->id;
+        $adminData = App\Models\User::find($id);
+@endphp
 
 <aside class="sidebar">
                         <div class="sidebar-logo cols-center">
@@ -10,8 +13,8 @@
                         </div>
                         <div class="sidebar-user">
                                 <div class="sidebar-user-info vertical-center">
-                                        <img src="{{asset('backend/assets/images/user-2.jpg')}}" alt="user">
-                                        <div class="sidebar-user-name">Khun Tun</div>
+                                        <img src="{{ (!empty($adminData->profile_image)) ? url('profile-upload/admin_images/' . $adminData->profile_image) : url('profile-upload/no-image.png') }}" alt="user">
+                                        <div class="sidebar-user-name">{{$adminData->name}}</div>
                                 </div>
                                 <button class="btns btn-outlines">
                                         <i class="fas fa-arrow-alt-circle-right"></i>
@@ -33,7 +36,7 @@
                                         <ul class="sidebar-menus sidebar-menu-dropdown-content">
                                                 <li><a href="{{ route('users.index') }}" target="_blank"><span>Users</span></a></li>
                                                 <li><a href="{{ route('roles.index') }}" target="_blank"><span>Roles</span></a></li>
-                                                <li><a href="#"><span>Edit Profile</span></a></li>
+                                                <li><a href="{{route('admin.profile')}}"><span>Profile</span></a></li>
                                                 <li><a href="#"><span>Account Settings</span></a></li>
                                                 <li><a href="#"><span>Billing</span></a></li>
                                         </ul>

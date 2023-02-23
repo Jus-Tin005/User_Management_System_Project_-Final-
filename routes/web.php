@@ -32,10 +32,13 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 /**--------------------------
- *  Admin Logout Routes *
+ *  Admin All Routes *
  --------------------*/
  Route::controller(AdminController::class)->group(function(){
-    Route::get('admin/login','destroy')->name('admin.logout');
+    Route::get('/admin/login','destroy')->name('admin.logout');
+    Route::get('/admin/profile','Profile')->name('admin.profile');
+    Route::get('/edit/profile','EditProfile')->name('edit.profile');
+    Route::post('/store/profile','StoreProfile')->name('store.profile');
  });
 
 

@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $orders = Order::where('user_id',Auth::user()->id)->orderBy('id', 'asc')->paginate('5');
+        return view('home',compact('orders'));
     }
+
+    public function show($orderId)
+    {
+        $order = Order::where('user_id',Auth::user()->id)->where('id',$orderId)->first();
+        if($order){
+            return view('orders.view',compact('order'));
+        }else{
+            return redirect()->back()->with('message','Not Found Orders');
+        }
+
+    }
+
+
 }

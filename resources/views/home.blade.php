@@ -210,7 +210,7 @@
                                                                 <table>
                                                                         <thead>
                                                                                 <tr>
-                                                                                        <th>ID</th>
+                                                                                        <th>Order ID</th>
                                                                                         <th>Customer Name</th>
                                                                                         <th>Tracking No</th>
                                                                                         <th>Order Status</th>
@@ -231,7 +231,8 @@
                                                                                                                         {{ $item->payment_status}}
                                                                                                                 </td>
                                                                                                                 <td>{{ $item->created_at->format('d-m-Y')}}</td>
-                                                                                                                <td> <a href="{{ url('orders/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect">View</a></td>
+                                                                                                                <!-- <td> <a href="{{ url('orders/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect">View</a></td> -->
+                                                                                                                <td> <a href="{{ route('show/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect"><i class="fas fa-eye"></i></a></td>
                                                                                                         </tr>
                                                                                         @empty
                                                                                                         <tr>

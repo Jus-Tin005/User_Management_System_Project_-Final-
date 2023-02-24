@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /**--------------------------
  * Permissins Routes *
@@ -63,6 +63,8 @@ Route::get('/upload', function () {
  /**--------------------------
  *  Order Routes *
  --------------------*/
- Route::controller(OrderController::class)->group(function(){
-    Route::get('/admin/orders','order')->name('admin.order');
+
+ Route::controller(HomeController::class)->group(function(){
+    Route::get('/home','index')->name('home');
+    Route::get('/home/{orderId}','show')->name('show');
  });

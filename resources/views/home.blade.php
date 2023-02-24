@@ -200,6 +200,9 @@
                                                         </div>
                                                 </div>
                                         </div>
+                                        <!----------------------------------
+                                                * Recent Orders In  Main Content    *
+                                        ------------------------------------>
                                         <div class="cols-12">
                                                 <div class="box box-hover">
                                                         <div class="box-header">Recent Orders</div>
@@ -209,136 +212,36 @@
                                                                                 <tr>
                                                                                         <th>ID</th>
                                                                                         <th>Customer Name</th>
-                                                                                        <th>Date</th>
+                                                                                        <th>Tracking No</th>
                                                                                         <th>Order Status</th>
                                                                                         <th>Pyment Status</th>
-                                                                                        <th>Total</th>
+                                                                                        <th>Date</th>
+                                                                                        <th>Action</th>
                                                                                 </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                                <tr>
-                                                                                        <td>2081</td>
-                                                                                        <td>
-                                                                                                <div class="order-owner">
-                                                                                                        <img src="{{asset('backend/assets/images/user-2.jpg')}}" alt="user-1">
-                                                                                                        <span>Khun Tun</span>
-                                                                                                </div>
+                                                                                        @forelse ($orders as $item)
+                                                                                                        <tr>
+                                                                                                                <td>{{ $item->id}}</td>
+                                                                                                                <td class="order-owner">{{ $item->fullname}}</td>
+                                                                                                                <td>{{ $item->tracking_no}}</td>
+                                                                                                                <td class="order-status">{{ $item->order_status}}</td>
+                                                                                                                <td class="payment-status  vertical-center">
+                                                                                                                        <div class="dot"></div>
+                                                                                                                        {{ $item->payment_status}}
+                                                                                                                </td>
+                                                                                                                <td>{{ $item->created_at->format('d-m-Y')}}</td>
+                                                                                                                <td> <a href="{{ url('orders/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect">View</a></td>
+                                                                                                        </tr>
+                                                                                        @empty
+                                                                                                        <tr>
+                                                                                                                <td colspan="7">No Orders Available Right Now</td>
+                                                                                                        </tr>
+                                                                                        @endforelse
 
-                                                                                        </td>
-                                                                                        <td>5-2-2023</td>
-                                                                                        <td>
-                                                                                                <span class="order-status order-ready">Ready</span>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                                <div class="payment-status payment-pending vertical-center">
-                                                                                                        <div class="dot"></div>
-                                                                                                        <span>Pending</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>Kyats500,000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                        <td>2082</td>
-                                                                                        <td>
-                                                                                                <div class="order-owner">
-                                                                                                        <img src="{{asset('backend/assets/images/user-1.jpg')}}" alt="user-2">
-                                                                                                        <span>Moe Moe</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>3-2-2023</td>
-                                                                                        <td>
-                                                                                                <span class="order-status order-hold">On hold</span>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                                <div class="payment-status payment-failed vertical-center">
-                                                                                                        <div class="dot"></div>
-                                                                                                        <span>Failed</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>Kyats200,000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                        <td>2083</td>
-                                                                                        <td>
-                                                                                                <div class="order-owner">
-                                                                                                        <img src="{{asset('backend/assets/images/user-5.jpg')}}" alt="user-3">
-                                                                                                        <span>Han Htun</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>1-2-2023</td>
-                                                                                        <td>
-                                                                                                <span class="order-status order-processing">Processing</span>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                                <div class="payment-status payment-paid vertical-center">
-                                                                                                        <div class="dot"></div>
-                                                                                                        <span>Paid</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>Kyats400,000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                        <td>2084</td>
-                                                                                        <td>
-                                                                                                <div class="order-owner">
-                                                                                                        <img src="{{asset('backend/assets/images/user-3.jpg')}}" alt="user-4">
-                                                                                                        <span>Han Thu Zar</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>3-2-2023</td>
-                                                                                        <td>
-                                                                                                <span class="order-status order-shipped">Shipped</span>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                                <div class="payment-status payment-paid vertical-center">
-                                                                                                        <div class="dot"></div>
-                                                                                                        <span>Paid</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>Kyats20,000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                        <td>2085</td>
-                                                                                        <td>
-                                                                                                <div class="order-owner">
-                                                                                                        <img src="{{asset('backend/assets/images/user-6.jpg')}}" alt="user-5">
-                                                                                                        <span>Zaw Zaw</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>2-2-2023</td>
-                                                                                        <td>
-                                                                                                <span class="order-status order-shipped">Shipped</span>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                                <div class="payment-status payment-paid vertical-center">
-                                                                                                        <div class="dot"></div>
-                                                                                                        <span>Paid</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>Kyats50,000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                        <td>2086</td>
-                                                                                        <td>
-                                                                                                <div class="order-owner">
-                                                                                                        <img src="{{asset('backend/assets/images/user-4.jpg')}}" alt="user-6">
-                                                                                                        <span>Nadi</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>4-2-2023</td>
-                                                                                        <td>
-                                                                                                <span class="order-status order-shipped">Shipped</span>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                                <div class="payment-status payment-paid vertical-center">
-                                                                                                        <div class="dot"></div>
-                                                                                                        <span>Paid</span>
-                                                                                                </div>
-                                                                                        </td>
-                                                                                        <td>Kyats60,000</td>
-                                                                                </tr>
-                                                                        </tbody>
+                                                                                </tbody>
                                                                 </table>
+                                                                <div>{{$orders->links()}}</div>
                                                         </div>
                                                 </div>
                                         </div>

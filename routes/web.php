@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -58,3 +59,10 @@ Route::get('/upload', function () {
     return view('admin.upload.form_upload');
 });
 
+
+ /**--------------------------
+ *  Order Routes *
+ --------------------*/
+ Route::controller(OrderController::class)->group(function(){
+    Route::get('/admin/orders','order')->name('admin.order');
+ });

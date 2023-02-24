@@ -670,13 +670,6 @@ table {
         font-weight:var(--font-5);
 }
 
-.order-owner img {
-        width: 45px;
-        height: 45px;
-        border-radius: var(--percent-50);
-        margin-right: 15px;
-        object-fit: cover;
-}
 
 table thead tr {
         text-align: left;
@@ -697,45 +690,13 @@ table th, table td {
         font-weight:var(--font-5);
 }
 
-.order-ready {
-        color:var(--primary-color);
-        background-color: rgba(62, 121, 247, 0.1);
-}
-
-.order-shipped {
-        color: var(--text-two-color);
-        background-color: rgba(4, 209, 130, 0.1);
-}
-
-.order-processing {
-        color:var(--text-three-color);
-        background-color: rgba(95, 92, 3, 0.1);
-}
-
-.order-hold {
-        color:var(--text-four-color);
-        background-color: rgba(87, 30, 7, 0.1);
-}
-
 .payment-status .dot {
         width: 10px;
         height: 10px;
+        background-color:var(--text-two-color);
         border-radius:var(--percent-50);
         margin-right: 10px;
 }
-
-.payment-paid .dot {
-        background-color:var(--text-two-color);
-}
-
-.payment-pending .dot {
-        background-color:var(--text-three-color);
-}
-
-.payment-failed .dot {
-        background-color:var(--text-four-color);
-}
-
 
 /*
  -------------------------

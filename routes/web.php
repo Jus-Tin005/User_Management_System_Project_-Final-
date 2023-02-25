@@ -7,7 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\OrderController;
+// use App\Http\Controllers\OrderController;
 
 
 
@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
 /**--------------------------
  * Permissins Routes *
@@ -64,7 +65,9 @@ Route::get('/upload', function () {
  *  Order Routes *
  --------------------*/
 
+
  Route::controller(HomeController::class)->group(function(){
     Route::get('/home','index')->name('home');
-    Route::get('/home/{orderId}','show')->name('show');
+    Route::get('/orders/{orderId}','show')->name('order.show');
  });
+

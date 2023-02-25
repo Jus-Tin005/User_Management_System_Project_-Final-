@@ -25,7 +25,7 @@
                         ------------------------------------>
                         <ul class="sidebar-menus">
                                 <li>
-                                        <a href="./index.html"><i class="fas fa-home"></i><span>Home</span></a>
+                                        <a href="{{route('home')}}"><i class="fas fa-home"></i><span>Home</span></a>
                                 </li>
                                 <li class="sidebar-sub-menus">
                                         <a href="#" class="sidebar-menu-dropdown">
@@ -42,7 +42,7 @@
                                         </ul>
                                 </li>
                                 <li>
-                                        <a href="#"><i class="fas fa-shopping-cart"></i><span>Sales</span></a>
+                                        <a href="#"><i class="fas fa-shopping-cart"></i><span>Orders</span></a>
                                 </li>
                                 <li>
                                         <a href="#"><i class="fas fa-chart-line"></i><span>Analytics</span></a>

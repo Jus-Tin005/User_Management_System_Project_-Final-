@@ -25,13 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id',Auth::user()->id)->orderBy('id', 'asc')->paginate('5');
+        $orders = Order::where('order_id',Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
         return view('home',compact('orders'));
     }
 
+
+
     public function show($orderId)
     {
-        $order = Order::where('user_id',Auth::user()->id)->where('id',$orderId)->first();
+        $order = Order::where('order_id',Auth::user()->id)->where('id',$orderId)->first();
         if($order){
             return view('orders.view',compact('order'));
         }else{

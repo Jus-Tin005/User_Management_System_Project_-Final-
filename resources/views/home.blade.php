@@ -203,10 +203,12 @@
                                         <!----------------------------------
                                                 * Recent Orders In  Main Content    *
                                         ------------------------------------>
-                                        <div class="cols-12">
+                                        <div class="cols-10">
                                                 <div class="box box-hover">
                                                         <div class="box-header">Recent Orders</div>
                                                         <div class="box-body overflow-scrolls">
+
+
                                                                 <table>
                                                                         <thead>
                                                                                 <tr>
@@ -231,8 +233,8 @@
                                                                                                                         {{ $item->payment_status}}
                                                                                                                 </td>
                                                                                                                 <td>{{ $item->created_at->format('d-m-Y')}}</td>
-                                                                                                                <!-- <td> <a href="{{ url('orders/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect">View</a></td> -->
-                                                                                                                <td> <a href="{{ route('show/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect"><i class="fas fa-eye"></i></a></td>
+                                                                                                                <td> <a href="{{ route('order.show/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect">View</a></td>
+
                                                                                                         </tr>
                                                                                         @empty
                                                                                                         <tr>

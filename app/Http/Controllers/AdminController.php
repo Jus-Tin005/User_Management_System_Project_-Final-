@@ -45,4 +45,19 @@ class AdminController extends Controller
 
         return redirect()->route('admin.profile');
     }
+
+
+    public function UploadProfile(Request $request){
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        if($request->file('profile_image')){
+            $file = $request->file('profile_image');
+            $fileName = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('profile-upload/admin_images'), $fileName);
+            $data['profile_image'] = $fileName;
+    }
+
+    $data->save();
+    return redirect()->route('upload');
+    }
 }

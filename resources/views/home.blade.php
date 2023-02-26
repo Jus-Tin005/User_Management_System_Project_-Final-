@@ -201,50 +201,44 @@
                                                 </div>
                                         </div>
                                         <!----------------------------------
-                                                * Recent Orders In  Main Content    *
+                                                * All Users In  Main Content    *
                                         ------------------------------------>
                                         <div class="cols-10">
                                                 <div class="box box-hover">
-                                                        <div class="box-header">Recent Orders</div>
+                                                        <h5 class="my-3">
+                                                                Hi...<b>{{Auth::user()->name}}</b>
+                                                                        <b style="float:right;">Total Users
+                                                                                <span class="bg-danger rounded-3 p-2 text-light">23</span>
+                                                                        </b>
+
+                                                        </h5>
+                                                        <div class="box-header">All Users</div>
                                                         <div class="box-body overflow-scrolls">
-
-
                                                                 <table>
                                                                         <thead>
                                                                                 <tr>
-                                                                                        <th>Order ID</th>
-                                                                                        <th>Customer Name</th>
-                                                                                        <th>Tracking No</th>
-                                                                                        <th>Order Status</th>
-                                                                                        <th>Pyment Status</th>
+                                                                                        <th>Sr.ID</th>
+                                                                                        <th>Name</th>
+                                                                                        <th>Username</th>
+                                                                                        <th>Email</th>
+                                                                                        <th>Profile Image</th>
                                                                                         <th>Date</th>
-                                                                                        <th>Action</th>
                                                                                 </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                                        @forelse ($orders as $item)
-                                                                                                        <tr>
-                                                                                                                <td>{{ $item->id}}</td>
-                                                                                                                <td class="order-owner">{{ $item->fullname}}</td>
-                                                                                                                <td>{{ $item->tracking_no}}</td>
-                                                                                                                <td class="order-status">{{ $item->order_status}}</td>
-                                                                                                                <td class="payment-status  vertical-center">
-                                                                                                                        <div class="dot"></div>
-                                                                                                                        {{ $item->payment_status}}
-                                                                                                                </td>
-                                                                                                                <td>{{ $item->created_at->format('d-m-Y')}}</td>
-                                                                                                                <td> <a href="{{ route('order.show/' . $item->id) }}" class="btn btn-info btn-rounded waves-effect">View</a></td>
-
+                                                                                <!-- @php $users = [] @endphp -->
+                                                                                        @foreach ( $users as  $user)
+                                                                                                       <tr>
+                                                                                                                <td></td>
+                                                                                                                <td>{{$user->name}}</td>
+                                                                                                                <td>{{$user->username}}</td>
+                                                                                                                <td>{{$user->email}}</td>
+                                                                                                                <td>{{$user->profile_image}}</td>
+                                                                                                                <td>{{$user->created_at}}</td>
                                                                                                         </tr>
-                                                                                        @empty
-                                                                                                        <tr>
-                                                                                                                <td colspan="7">No Orders Available Right Now</td>
-                                                                                                        </tr>
-                                                                                        @endforelse
-
+                                                                                        @endforeach
                                                                                 </tbody>
                                                                 </table>
-                                                                <div>{{$orders->links()}}</div>
                                                         </div>
                                                 </div>
                                         </div>

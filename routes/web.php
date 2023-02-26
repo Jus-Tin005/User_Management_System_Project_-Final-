@@ -7,20 +7,14 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
-// use App\Http\Controllers\OrderController;
-
-
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Auth::routes();
-
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 
 /**--------------------------
  * Permissins Routes *
@@ -41,6 +35,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/profile','Profile')->name('admin.profile');
     Route::get('/edit/profile','EditProfile')->name('edit.profile');
     Route::post('/store/profile','StoreProfile')->name('store.profile');
+    Route::post('/upload/profile','UploadProfile')->name('upload.profile');
  });
 
 
@@ -62,12 +57,13 @@ Route::get('/upload', function () {
 
 
  /**--------------------------
- *  Order Routes *
+ *  Users Routes *
  --------------------*/
-
 
  Route::controller(HomeController::class)->group(function(){
     Route::get('/home','index')->name('home');
-    Route::get('/orders/{orderId}','show')->name('order.show');
+
+        $users = DB::table('users')->get();
+        return view('orders.view', compact('users'));
  });
 

@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-
-
-
+@extends('layouts.app')
+@section('admin')
       <!----------------------------------
                 * Font Awesome *
           ------------------------------------>
@@ -25,8 +17,7 @@
          --------------------------->
          <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
          <link rel="stylesheet" href="{{asset('backend/assets/css/form_upload.css')}}">
-</head>
-<body>
+
 
         <div class="drag-continer">
                 <div class="drag-content">
@@ -42,7 +33,16 @@
                                                 <input type="file" name="file" class="form-control">
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center my-3">
-                                                <button type="submit" class="btn btn-primary">Send</button>
+                                                <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mx-2">Send To Server</button>
+                                        </div>
+                                </form>
+                                <form action="{{route('upload.profile')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                                <input type="file" name="profile_image" class="form-control">
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center my-3">
+                                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Send To Local</button>
                                         </div>
                                 </form>
                         </div>
@@ -53,7 +53,5 @@
         * Bootstrap *
         ------------------------------------>
         <script src="{{asset('backend/assets/libs/bootstrap-5.0.2-dist/js/bootstrap.js')}}"></script>
+        @endsection
 
-
-</body>
-</html>

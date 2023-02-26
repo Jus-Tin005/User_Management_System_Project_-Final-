@@ -37,12 +37,12 @@
                                                 <li><a href="{{ route('users.index') }}" target="_blank"><span>Users</span></a></li>
                                                 <li><a href="{{ route('roles.index') }}" target="_blank"><span>Roles</span></a></li>
                                                 <li><a href="{{route('admin.profile')}}"><span>Profile</span></a></li>
-                                                <li><a href="#"><span>Account Settings</span></a></li>
+                                                <li><a href="#"><span>All Categories</span></a></li>
                                                 <li><a href="#"><span>Billing</span></a></li>
                                         </ul>
                                 </li>
                                 <li>
-                                        <a href="#"><i class="fas fa-shopping-cart"></i><span>Orders</span></a>
+                                        <a href="#"><i class="fas fa-shopping-cart"></i><span>Sales</span></a>
                                 </li>
                                 <li>
                                         <a href="#"><i class="fas fa-chart-line"></i><span>Analytics</span></a>

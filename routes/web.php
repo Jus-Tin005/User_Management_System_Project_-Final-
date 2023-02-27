@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Models\User;
 
 
@@ -57,10 +58,21 @@ Route::get('/upload', function () {
 
 
  /**--------------------------
- *  Users Routes *
+ *  Login Users Routes *
  --------------------*/
 
  Route::controller(HomeController::class)->group(function(){
     Route::get('/home','index')->name('home');
  });
+
+
+
+ /**--------------------------
+ *  Category Routes *
+ --------------------*/
+ Route::controller(CategoryController::class)->group(function(){
+    Route::get('/category/all','AllCategory')->name('all.category');
+    Route::post('/category/add','AddCategory')->name('store.category');
+ });
+
 

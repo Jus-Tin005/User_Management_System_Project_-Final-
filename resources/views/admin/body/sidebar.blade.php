@@ -37,7 +37,7 @@
                                                 <li><a href="{{ route('users.index') }}" target="_blank"><span>Users</span></a></li>
                                                 <li><a href="{{ route('roles.index') }}" target="_blank"><span>Roles</span></a></li>
                                                 <li><a href="{{route('admin.profile')}}"><span>Profile</span></a></li>
-                                                <li><a href="#"><span>All Categories</span></a></li>
+                                                <li><a href="{{route('all.category')}}"><span>All Categories</span></a></li>
                                                 <li><a href="#"><span>Billing</span></a></li>
                                         </ul>
                                 </li>

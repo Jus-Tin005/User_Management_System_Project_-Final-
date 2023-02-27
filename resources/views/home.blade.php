@@ -208,7 +208,7 @@
                                                         <h5 class="my-3">
                                                                 Hi...<b>{{Auth::user()->name}}</b>
                                                                         <b style="float:right;">Total Users
-                                                                                <span class="bg-danger rounded-3 p-2 text-light">23</span>
+                                                                                <span class="bg-danger rounded-3 p-2 text-light">{{count($users)}}</span>
                                                                         </b>
 
                                                         </h5>
@@ -221,20 +221,24 @@
                                                                                         <th>Name</th>
                                                                                         <th>Username</th>
                                                                                         <th>Email</th>
-                                                                                        <th>Profile Image</th>
                                                                                         <th>Date</th>
                                                                                 </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                                <!-- @php $users = [] @endphp -->
+                                                                                        @php($i = 1)
                                                                                         @foreach ( $users as  $user)
                                                                                                        <tr>
-                                                                                                                <td></td>
+                                                                                                                <td>{{$i++}}</td>
                                                                                                                 <td>{{$user->name}}</td>
-                                                                                                                <td>{{$user->username}}</td>
+                                                                                                                <td>
+                                                                                                                        @if($user->username == NULL)
+                                                                                                                                <span  class="text-danger">No Username Set</span>
+                                                                                                                        @else
+                                                                                                                                {{$user->username}}
+                                                                                                                        @endif
+                                                                                                                </td>
                                                                                                                 <td>{{$user->email}}</td>
-                                                                                                                <td>{{$user->profile_image}}</td>
-                                                                                                                <td>{{$user->created_at}}</td>
+                                                                                                                <td>{{$user->created_at->diffForHumans()}}</td>
                                                                                                         </tr>
                                                                                         @endforeach
                                                                                 </tbody>

@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -62,8 +62,5 @@ Route::get('/upload', function () {
 
  Route::controller(HomeController::class)->group(function(){
     Route::get('/home','index')->name('home');
-
-        $users = DB::table('users')->get();
-        return view('orders.view', compact('users'));
  });
 

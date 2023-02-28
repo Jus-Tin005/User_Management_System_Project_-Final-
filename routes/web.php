@@ -73,6 +73,11 @@ Route::get('/upload', function () {
  Route::controller(CategoryController::class)->group(function(){
     Route::get('/category/all','AllCategory')->name('all.category');
     Route::post('/category/add','AddCategory')->name('store.category');
+    Route::get('category/edit/{id}','Edit');
+    Route::post('category/update/{id}','Update');
+    Route::get('category/softdelete/{id}','SoftDelete');
+    Route::get('category/restore/{id}','Restore');
+    Route::get('category/perDelete/{id}','PerDelete');
  });
 
 

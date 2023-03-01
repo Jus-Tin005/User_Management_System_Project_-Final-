@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 use App\Models\User;
 
 
@@ -71,8 +72,8 @@ Route::get('/upload', function () {
  *  Category Routes *
  --------------------*/
  Route::controller(CategoryController::class)->group(function(){
-    Route::get('/category/all','AllCategory')->name('all.category');
-    Route::post('/category/add','AddCategory')->name('store.category');
+    Route::get('category/all','AllCategory')->name('all.category');
+    Route::post('category/add','AddCategory')->name('store.category');
     Route::get('category/edit/{id}','Edit');
     Route::post('category/update/{id}','Update');
     Route::get('category/softdelete/{id}','SoftDelete');
@@ -80,4 +81,15 @@ Route::get('/upload', function () {
     Route::get('category/perDelete/{id}','PerDelete');
  });
 
+
+  /**--------------------------
+ *  Brand Routes *
+ --------------------*/
+Route::controller(BrandController::class)->group(function(){
+    Route::get('brand/all','AllBrand')->name('all.brand');
+    Route::post('brand/add','AddBrand')->name('store.brand');
+    Route::get('brand/edit/{id}','Edit');
+    Route::post('update/brand{id}','Update');
+    Route::delete('brand/delete/{id}','Delete');
+});
 

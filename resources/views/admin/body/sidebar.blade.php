@@ -54,7 +54,7 @@
                                                 <div class="dropdown-icons"></div>
                                         </a>
                                         <ul class="sidebar-menus sidebar-menu-dropdown-content">
-                                                <li><a href="#"><span>Add Products</span></a></li>
+                                                <li><a href="{{route('all.brand')}}"><span>Brands</span></a></li>
                                                 <li><a href="#"><span>Products List</span></a></li>
                                                 <li><a href="#"><span>Orders</span></a></li>
                                         </ul>
